@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 import { ContextoUF } from '../../context/contextUF';
+import './CadastroUF.css';
+
+
 
 const CadastroUF = () => {
 
@@ -31,11 +34,14 @@ const tratarEnvio= async(e)=>{
   return (
       <>
       {/* {JSON.stringify(uf)} */}
-    <form>
-        <input onChange={(e)=>tratarMudancaUF(e)} value={uf.nome.toString()} type="text" name='nome' required placeholder='nome' />
-        <input onChange={(e)=>tratarMudancaUF(e)} value={uf.sigla.toString()} type="text" name='sigla' required placeholder="sigla" />
-        <input onChange={(e)=>tratarMudancaUF(e)} value={uf.status.toString()} type="text" name='status' required placeholder="status" />
-        <a onClick={(e)=>tratarEnvio(e)} type='submit'>salvar</a>
+    <form className='formulario_uf'>
+        <div className="formulario_grupo_campos">
+        <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.nome.toString()} type="text" name='nome' required placeholder='nome' />
+        <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.sigla.toString()} type="text" name='sigla' required placeholder="sigla" />
+        <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.status.toString()} type="text" name='status' required placeholder="status" />
+
+        <button className='campo_uf_save'  onClick={(e)=>tratarEnvio(e)} type='submit'>salvar</button>    
+        </div>
     </form>
     </>
   )
