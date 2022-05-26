@@ -1,13 +1,13 @@
 import React from 'react'
 import { CardUF } from '../../Cards';
 
-import './ListaUF.css';
+import './Lista.css';
 
-const ListaUF = ({estados}) => {
+const Lista = ({items}) => {
   return (
     <ul className='uf_list'>
          {
-       estados.length> 0 && estados.map(estado=>(
+       items.length> 0 && items.map(estado=>(
          <CardUF key={estado.codigoUF} estado={estado} />
        ))
      }
@@ -15,4 +15,4 @@ const ListaUF = ({estados}) => {
   )
 }
 
-export default ListaUF;
+export default Lista;

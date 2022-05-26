@@ -12,7 +12,7 @@ export const CardUF = ({estado}) => {
          <h4>{estado.nome}</h4>
        
          <button className='optionsBtn'  onClick={()=>removerEstado(estado.codigoUF)}>
-         <svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 rs22bh7c gl3lb2sf hhz5lgdu"><circle cx="12" cy="12" r="2.5"></circle><circle cx="19.5" cy="12" r="2.5"></circle><circle cx="4.5" cy="12" r="2.5"></circle></svg>
+         <svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" ><circle cx="12" cy="12" r="2.5"></circle><circle cx="19.5" cy="12" r="2.5"></circle><circle cx="4.5" cy="12" r="2.5"></circle></svg>
          </button>
      </div>
      <div className="card_body">

@@ -2,7 +2,8 @@ import React, { useContext,useEffect } from 'react'
 import { CardUF } from '../../components/Cards';
 import { ContextoUF } from '../../context/contextUF';
 
-import ListaUF from '../../components/Listas/ListaUF';
+// import Lista from '../../components/Listas/Lista';
+import Lista from '../../components/Listas/Lista';
 import './Home.css';
 import CadastroUF from '../../components/Formularios/CadastroUF';
 
@@ -20,7 +21,7 @@ const {ufs,removerEstado} = useContext(ContextoUF);
     <article>
         <h2>Cadastraro de Pessoas e Lugares</h2>
         <CadastroUF />
-        <ListaUF estados={ufs} />
+        <Lista items={ufs} />
 
 
     </article>
