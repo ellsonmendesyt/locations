@@ -1,0 +1,14 @@
+/*
+ O Header é um filho direto da malha
+ Quero que ele tome toda extensão da tela
+*/
+
+header{
+    grid-column: span 3;
+    border-bottom:1px solid #ddd;
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: #fff;
+    padding: 20px;
+}
+

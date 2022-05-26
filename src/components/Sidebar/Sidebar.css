@@ -1,0 +1,31 @@
+aside{
+    /* background-color: orange; */
+    padding: 30px;
+    border:1px solid #ddd;
+    /* background-color: #fff; */
+    /* margin: 0px 20px; */
+
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+}
+
+@media screen and (max-width:980px){
+ aside{
+     grid-column:span 3;
+ }   
+}
+
+@media (max-width:1200px){
+    aside{
+        padding:10px;
+        /* background-color: crimson; */
+    }
+}
+
+@media (min-width:981px){
+    aside{
+        margin: 0 1rem;
+    }
+}
