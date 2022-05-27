@@ -10,10 +10,11 @@ const Navbar = () => {
     <p>Serviços</p>
     
     <Link to='/'>Inicio</Link>
-    <Link to='/estados'>Estados</Link>
-    <Link to='/municipios'>Municipios</Link>
-    <Link to='/enderecos'>Endereços</Link>
-    <Link to='/pessoas'>Pessoas</Link>
+    <Link to='/estados'>UF</Link>
+    <Link to='/municipios'>Mu</Link>
+    <Link to='/bairros'>Bai</Link>
+    <Link to='/enderecos'>End</Link>
+    <Link to='/pessoas'>Pes</Link>
 
     
 </nav>

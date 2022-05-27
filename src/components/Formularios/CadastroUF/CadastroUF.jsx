@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { ContextoUF } from '../../context/contextUF';
+import { ContextoUF } from '../../../context/contextUF';
 import './CadastroUF.css';
 
 
 
-const CadastroUF = () => {
+export const CadastroUF = () => {
 
 
 const {cadastrarEstado} =useContext(ContextoUF);    
@@ -47,4 +47,3 @@ const tratarEnvio= async(e)=>{
   )
 }
 
-export default CadastroUF

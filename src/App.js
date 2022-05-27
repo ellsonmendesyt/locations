@@ -6,32 +6,48 @@ import NotFound from "./components/NotFound";
 import Layout from "./components/Layout";
 
 
-import {ContextoUF} from './context/contextUF';
 import React, { useEffect } from "react";
 import axios from "axios";
 import Estado from "./pages/Estado";
 import Municipio from "./pages/Municipio";
+
+///contextos
+import {ContextoUF} from './context/contextUF';
+import {ContextoMunicipio} from './context/contextMunicipio';
+import Bairro from "./pages/Bairro";
+
+
+
+
+
+
+
+
+
 function App() {
+
 
 const [ufs, setUfs] = React.useState([]);
 
+// metodos dos Estados
 const obterEstados= async () => {
   const response= await axios.get(`http://localhost:3333/uf`);
   setUfs(response.data);
 }
-
 const removerEstado= async(codigoUf)=>{
   const response= await axios.delete(`http://localhost:3333/uf/${codigoUf}`);
   setUfs(response.data);
 }
-
-
 const cadastrarEstado = async (novoEstado) => {
   const response = await axios.post(`http://localhost:3333/uf`, novoEstado, {ContentType:"application/json"});
   setUfs(response.data);
 };
 
-const pacote={
+//Metodos dos Municipios
+
+
+
+const pacoteUF={
   ufs,
   setUfs,
   obterEstados,
@@ -39,6 +55,11 @@ const pacote={
   cadastrarEstado
 }
 
+
+
+
+
+const pacoteMu={}
 
 useEffect( ()=>{
 
@@ -51,15 +72,18 @@ useEffect( ()=>{
   
   return (
     <>
-    <ContextoUF.Provider value={pacote}>
+    <ContextoUF.Provider value={pacoteUF}>
+    <ContextoMunicipio.Provider value={pacoteMu}>
      <Routes>
        <Route path='/' element={<Layout/>}>
       <Route index path='estados' element={<Estado  />} /> 
       <Route index path='municipios' element={<Municipio  />} /> 
+      <Route index path='bairros' element={<Bairro  />} /> 
      
       <Route path="*" element={<NotFound />} /> 
        </Route>
       </Routes> 
+      </ContextoMunicipio.Provider>
       </ContextoUF.Provider>
     </>
   );

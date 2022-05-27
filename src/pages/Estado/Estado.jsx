@@ -1,18 +1,18 @@
 import React, { useContext,useEffect } from 'react'
-import { CardUF } from '../../components/Cards';
+
 import { ContextoUF } from '../../context/contextUF';
 
-// import Lista from '../../components/Listas/Lista';
-import Lista from '../../components/Listas/Lista';
-import './Home.css';
-import CadastroUF from '../../components/Formularios/CadastroUF';
 
+import './Estado.css';
+// import CadastroUF from '../../components/Formularios/CadastroUF';
+import { CadastroUF } from '../../components/Formularios/CadastroUF';
+import { Lista } from '../../components/Lista';
 
 
 
 const Estado = () => {
 
-const {ufs,removerEstado} = useContext(ContextoUF);
+const {ufs} = useContext(ContextoUF);
 //  useEffect(()=>{
 //   // obterUF();
 //  },[])
@@ -21,7 +21,7 @@ const {ufs,removerEstado} = useContext(ContextoUF);
     <article>
         <h2>Cadastraro de Estados</h2>
         <CadastroUF />
-        <Lista items={ufs} />
+        <Lista id="codigoUF" items={ufs} />
 
 
     </article>

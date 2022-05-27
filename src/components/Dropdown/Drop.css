@@ -2,8 +2,9 @@
   position: relative;
   color: #333;
   cursor: default;
-  max-width: 250px;
+  /* max-width: 300px; */
 
+ 
 }
 
 .dropdown .arrow {
@@ -17,7 +18,7 @@
   margin-top: 0.3rem;
   position: absolute;
   right: 10px;
-  top: 14px;
+  top: 6px;
   width: 0;
 }
 
@@ -27,6 +28,7 @@
 }
 
 .dropdown .selected-value {
+
   line-height: 1.5;
   font-size: 1rem;
   background-color: #fff;
@@ -35,12 +37,14 @@
   box-sizing: border-box;
   cursor: default;
   outline: none;
-  padding: 8px 52px 8px 10px;
+  padding: 1px 52px 6px 10px;
   transition: all 200ms ease;
   width: 100%;
+
 }
 
 .dropdown .options {
+  
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -66,6 +70,7 @@
   cursor: pointer;
   display: block;
   padding: 8px 10px;
+  
 }
 
 .dropdown .option.selected,

@@ -1,8 +1,22 @@
 import React, { useEffect,useRef,useState } from 'react'
-
-
 import './Drop.css';
-export const Dropdown = ({options,prompt, value, onChange,label,id}) => {
+
+
+/**-------------------------------------------------------------------
+  Passamos uma lista de ESTADOS pro dropdown o que o usuario escolher 
+  Porque preqisamos saber em qual Estado criar o MUNICIPIO
+
+ Parametros do Dropdown:
+ 
+value:      ele vai mostrar a opção selecionada
+prompt:     texto que informa o que o usuario deve escolher
+getOption:  recupera o valor selecionado
+id:         usado na propriedade key do elemento ao ser mapeado
+label:      usado para mostrar o valor no dropdown
+
+----------------------------------------------------------------------*/
+
+export const Dropdown = ({options,prompt, value, getOption,label,id}) => {
 
  const [open,setOpen] = useState(false);
 
@@ -10,13 +24,11 @@ export const Dropdown = ({options,prompt, value, onChange,label,id}) => {
 
  useEffect(()=>{
   document.addEventListener('click', fecharDropdown);
-
   return ()=> document.removeEventListener("click",fecharDropdown);
  },[])
  
 const fecharDropdown = (e) => {
-  console.dir([e.target, ref.current])
-  //se estiver aberto e se eu cliquei no dodumento
+  // console.dir([e.target, ref.current])
  setOpen(e && e.target === ref.current);
 }
 
@@ -29,13 +41,15 @@ const fecharDropdown = (e) => {
       </div>
 
       <div className={`options  ${open ? "open" : null}`}>
-        {options.map(option=> 
-        <div 
-        key={option[id]}
-        className={`option ${value===option ? "selected": null}`} 
-        onClick={()=>{onChange(option);
-        setOpen(false)
-        }}>{option.nome}</div>)}
+        {
+            options.map(option=> 
+            <div 
+            key={option[id]}
+            className={`option ${value===option ? "selected": null}`} 
+            onClick={()=>{getOption(option);
+            setOpen(false)
+            }}>{option.nome}</div>)
+        }
       </div>
 
     </div>

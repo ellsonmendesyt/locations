@@ -34,7 +34,8 @@ article p{
 
 }
 
-.formulario_grupo > .campo_mu
+.formulario_grupo > .campo_bairro,
+.formulario_grupo > .campo_uf
 {
     padding:.4rem 1rem;
 }
