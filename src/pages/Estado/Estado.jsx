@@ -10,16 +10,16 @@ import CadastroUF from '../../components/Formularios/CadastroUF';
 
 
 
-const Home = () => {
+const Estado = () => {
 
 const {ufs,removerEstado} = useContext(ContextoUF);
- useEffect(()=>{
-  // obterUF();
- },[])
+//  useEffect(()=>{
+//   // obterUF();
+//  },[])
 
   return (
     <article>
-        <h2>Cadastraro de Pessoas e Lugares</h2>
+        <h2>Cadastraro de Estados</h2>
         <CadastroUF />
         <Lista items={ufs} />
 
@@ -28,4 +28,4 @@ const {ufs,removerEstado} = useContext(ContextoUF);
   )
 }
 
-export default Home
+export default Estado

@@ -1,5 +1,5 @@
 
-import Home from "./pages/Home";
+import Home from "./pages/Estado";
 
 import {Routes, Route} from 'react-router-dom';
 import NotFound from "./components/NotFound";
@@ -9,6 +9,8 @@ import Layout from "./components/Layout";
 import {ContextoUF} from './context/contextUF';
 import React, { useEffect } from "react";
 import axios from "axios";
+import Estado from "./pages/Estado";
+import Municipio from "./pages/Municipio";
 function App() {
 
 const [ufs, setUfs] = React.useState([]);
@@ -52,7 +54,8 @@ useEffect( ()=>{
     <ContextoUF.Provider value={pacote}>
      <Routes>
        <Route path='/' element={<Layout/>}>
-      <Route index element={<Home  />} /> 
+      <Route index path='estados' element={<Estado  />} /> 
+      <Route index path='municipios' element={<Municipio  />} /> 
      
       <Route path="*" element={<NotFound />} /> 
        </Route>

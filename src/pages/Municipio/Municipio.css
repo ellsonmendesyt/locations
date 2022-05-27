@@ -1,0 +1,24 @@
+article{
+    padding: 30px;
+}
+
+article h2{
+    font-size: 2.2em;
+    /* max-width:800px; */
+    color: #088475;
+}
+
+article video{
+    display: block;
+    width: 100%;
+}
+
+article p{
+    margin-top: 30px;
+    color: #777;
+    line-height: 2em;
+}
+
+
+
+
