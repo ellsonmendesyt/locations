@@ -1,0 +1,113 @@
+:root{
+    --bg:#323031;
+    --secondary:#f6c902;
+    --accent:#f78c1e;
+    --primary:#ff6000;
+    --borda:#dddddd72;
+  
+    --form-color: #367bde;
+  }
+
+
+
+
+
+
+
+
+.pessoa{
+    outline: 1px solid skyblue;
+    padding: 1rem;
+
+    
+}
+
+::placeholder{
+    color:gray;
+}
+
+
+.formulario_pessoa--dados
+.pessoa_campo--endereco
+{
+  
+    display: block;
+    padding: 30px 0px;
+    padding: 1rem;
+    
+    background-color: var(--bg);
+
+}
+
+.formulario_pessoa--dados > *,
+.formulario_pessoa--endereco > *
+{
+    display: block;
+    width:100%;
+    margin-bottom: 1rem;
+}
+
+.pessoa_campo,
+.pessoa_campo--endereco
+{
+ padding: .5rem 1rem;
+ color: var(--primary);
+ background:var(--bg);
+ border: 1px solid var(--borda);
+}
+
+
+/* Endereço */
+
+
+
+
+.formulario_pessoa--endereco{
+    background-color: var(--bg);
+}
+
+
+.dados_pessoais,
+.cadastro_endereco
+{
+    padding: 10px 10px;
+    /* border-radius: 12px !important; */
+   background-color: var(--bg);
+   margin-bottom: 1rem;
+}
+
+@media (min-width:574px){
+
+
+    .dados_pessoais{
+        margin-bottom: 20px;
+    }
+    .formulario_pessoa--dados,
+    .formulario_pessoa--endereco
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 250px;
+        /* background:olive; */
+        gap: 1rem;
+       
+    }
+
+    .formulario_pessoa--dados,
+    .formulario_pessoa--endereco
+    {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: var(--bg);}
+
+
+    .formulario_pessoa--dados  > *,
+    .formulario_pessoa--endereco > *
+    {
+        flex-basis: 220px;
+        /* background: yellow; */
+    }
+    
+}

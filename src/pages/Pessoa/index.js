@@ -1,0 +1,1 @@
+export {Pessoa} from './Pessoa';

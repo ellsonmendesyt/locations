@@ -6,17 +6,13 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav>
-    <p>Serviços</p>
-    
+    <nav>    
     <Link to='/'>Inicio</Link>
     <Link to='/estados'>UF</Link>
     <Link to='/municipios'>Mu</Link>
     <Link to='/bairros'>Bai</Link>
     <Link to='/enderecos'>End</Link>
     <Link to='/pessoas'>Pes</Link>
-
-    
 </nav>
   )
 }

@@ -15,6 +15,7 @@ import Municipio from "./pages/Municipio";
 import {ContextoUF} from './context/contextUF';
 import {ContextoMunicipio} from './context/contextMunicipio';
 import Bairro from "./pages/Bairro";
+import { Pessoa } from "./pages/Pessoa";
 
 
 
@@ -79,6 +80,7 @@ useEffect( ()=>{
       <Route index path='estados' element={<Estado  />} /> 
       <Route index path='municipios' element={<Municipio  />} /> 
       <Route index path='bairros' element={<Bairro  />} /> 
+      <Route index path='pessoas' element={<Pessoa  />} /> 
      
       <Route path="*" element={<NotFound />} /> 
        </Route>

@@ -39,7 +39,10 @@ nav  a{
     }
 }
 
-@media screen and (max-width:980px){
+@media screen and (max-width:900px){
+ .nav{
+     padding: 10px;
+ }
  nav{
      grid-column:span 3;
  }   

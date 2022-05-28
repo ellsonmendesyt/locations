@@ -30,17 +30,17 @@ const tratarEnvio= async(e)=>{
     limparCamposUF();
     
 }
-
+//onClick={(e)=>tratarEnvio(e)}
   return (
       <>
       {/* {JSON.stringify(uf)} */}
-    <form className='formulario_uf'>
+    <form className='formulario_uf' onSubmit={tratarEnvio}>
         <div className="formulario_grupo_campos">
         <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.nome.toString()} type="text" name='nome' required placeholder='nome' />
         <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.sigla.toString()} type="text" name='sigla' required placeholder="sigla" />
         <input className='campo_uf' onChange={(e)=>tratarMudancaUF(e)} value={uf.status.toString()} type="text" name='status' required placeholder="status" />
 
-        <button className='campo_uf_save'  onClick={(e)=>tratarEnvio(e)} type='submit'>salvar</button>    
+        <button className='campo_uf_save'   type='submit'>salvar</button>    
         </div>
     </form>
     </>

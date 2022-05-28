@@ -1,6 +1,14 @@
+:root{
+  --bg:#36393f;
+  --secondary:#f6c902;
+  --accent:#f78c1e;
+  --primary:#ff6000;
+}
+
+
 .dropdown {
   position: relative;
-  color: #333;
+  color: gray;
   cursor: default;
   /* max-width: 300px; */
 
@@ -31,8 +39,8 @@
 
   line-height: 1.5;
   font-size: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--bg);
+  border: 1px solid var(--borda);
   border-radius: 2px;
   box-sizing: border-box;
   cursor: default;
@@ -46,8 +54,8 @@
 .dropdown .options {
   
   display: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--bg);
+  border: 1px solid var(--borda);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
@@ -58,6 +66,7 @@
   width: 100%;
   z-index: 1000;
   -webkit-overflow-scrolling: touch;
+  
 }
 
 .dropdown .options.open {
@@ -70,11 +79,27 @@
   cursor: pointer;
   display: block;
   padding: 8px 10px;
+  color: var(--accent);
+  background-color: rgba(255, 255, 255, 0);
   
 }
 
 .dropdown .option.selected,
 .dropdown .option:hover {
-  background-color: #f2f9fc;
-  color: #333;
+  background-color: rgba(255, 255, 255, 0.111);
+}
+
+button{
+  padding: 8px 10px;
+  border: 1px solid var(--primary);
+  background-color: var(--bg);
+  /* border-radius:4px; */
+  color:var(--primary);
+  font-weight:bold;
+  letter-spacing: 2px;
+}
+
+button:hover{
+  color:#fff;
+  background-color: var(--primary);
 }
