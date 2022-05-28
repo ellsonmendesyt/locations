@@ -64,7 +64,7 @@ export const Pessoa = () => {
         </form>
     </div>
 
-        {/* LISTA */}
+        {/* LISTA  TEMPORARIA*/}
         <Lista id="codigoUF" items={ufs} />
 
     </div>

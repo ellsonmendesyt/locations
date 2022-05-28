@@ -77,7 +77,7 @@ useEffect( ()=>{
     <ContextoMunicipio.Provider value={pacoteMu}>
      <Routes>
        <Route path='/' element={<Layout/>}>
-      <Route index path='estados' element={<Estado  />} /> 
+      <Route index path='/' element={<Estado  />} /> 
       <Route index path='municipios' element={<Municipio  />} /> 
       <Route index path='bairros' element={<Bairro  />} /> 
       <Route index path='pessoas' element={<Pessoa  />} /> 

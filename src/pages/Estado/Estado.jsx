@@ -9,13 +9,8 @@ import { CadastroUF } from '../../components/Formularios/CadastroUF';
 import { Lista } from '../../components/Lista';
 
 
-
 const Estado = () => {
-
 const {ufs} = useContext(ContextoUF);
-//  useEffect(()=>{
-//   // obterUF();
-//  },[])
 
   return (
     <article>

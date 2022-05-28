@@ -6,6 +6,10 @@
     --borda:#dddddd72;
   
     --form-color: #367bde;
+
+    --verde: #00934f;
+
+    --cinza: #272f40;
   }
 
 
@@ -16,7 +20,7 @@
 
 
 .pessoa{
-    outline: 1px solid skyblue;
+    /* outline: 1px solid skyblue; */
     padding: 1rem;
 
     
