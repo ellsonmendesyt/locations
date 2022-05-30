@@ -1,7 +1,23 @@
+:root {
+    --bg: #323031;
+    --secondary: #f6c902;
+    --accent: #f78c1e;
+    --primary: #ff6000;
+    --borda: #dddddd72;
+    --form-color: #367bde;
+    --verde: #00934f;
+    --cinza: #272f40;
+}
+
 footer{
     grid-column:span 3;
     text-align:center;
     border: 1px solid #ddd;
     padding: 30px;
     margin-top: 3rem;
+    background-color:var(--bg);
+    color: lightgray;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+    z-index: 999;
 }

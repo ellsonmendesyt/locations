@@ -1,15 +1,27 @@
-/*
- O Header é um filho direto da malha
- Quero que ele tome toda extensão da tela
-*/
+
+:root {
+    --bg: #323031;
+    --secondary: #f6c902;
+    --accent: #f78c1e;
+    --primary: #ff6000;
+    --borda: #dddddd72;
+    --form-color: #367bde;
+    --verde: #00934f;
+    --cinza: #272f40;
+}
 
 header{
     grid-column: span 3;
-    border-bottom:1px solid #ddd;
+
     text-align: center;
-    margin-bottom: 3rem;
+    background-color:var(--bg);
     background-color: #000105;
-    padding: 20px;
     color:#fff;
+   /* margin-bottom: 1rem; */
 }
 
+header .titulo{
+    margin-bottom: 0;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}

@@ -1,18 +1,18 @@
 import React from 'react'
 
-import { Link} from 'react-router-dom';
+import { NavLink,Link} from 'react-router-dom';
 
 import './Navbar.css';
 
 const Navbar = () => {
   return (
     <nav>    
-    <Link to='/'>Est</Link>
-    {/* <Link to='/estados'>UF</Link> */}
-    <Link to='/municipios'>Mun</Link>
-    <Link to='/bairros'>Bai</Link>
-    <Link to='/enderecos'>End</Link>
-    <Link to='/pessoas'>Pes</Link>
+    <NavLink to='/'>Home</NavLink>
+    <NavLink to='/estados'>UF</NavLink>
+    <NavLink  to='/municipios'>Mun</NavLink>
+    <NavLink to='/bairros'>Bai</NavLink>
+    <NavLink to='/enderecos'>End</NavLink>
+    <NavLink to='/pessoas'>Pes</NavLink>
 </nav>
   )
 }

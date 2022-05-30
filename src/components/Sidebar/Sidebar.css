@@ -1,14 +1,51 @@
+:root {
+    --bg: #323031;
+    --secondary: #f6c902;
+    --accent: #f78c1e;
+    --primary: #ff6000;
+    --borda: #dddddd72;
+    --form-color: #367bde;
+    --verde: #00934f;
+    --cinza: #272f40;
+}
+
 aside{
-    /* background-color: orange; */
+ 
     padding: 30px;
     border:1px solid #ddd;
-    /* background-color: #fff; */
-    /* margin: 0px 20px; */
+    color:#656464;
 
-    background: rgba(255, 255, 255, 0.11);
+    background-color:   #fff;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
+    position: sticky;
+    top:0px;
+}
+
+aside ul{
+    list-style: none;
+}
+
+aside strong{
+    color:var(--borda);
+    font-weight: normal;
+}
+
+aside p:hover{
+    cursor: pointer;
+    color:lightgray;
+    font-weight: normal;
+    background-color:  #ebebeb;
+    color:#333;
+  
+}
+
+
+
+.lista-lateral{
+    position: sticky;
+    top:0px;
 }
 
 @media screen and (max-width:980px){

@@ -14,7 +14,7 @@ const {ufs} = useContext(ContextoUF);
 
   return (
     <article>
-        <h2>Cadastraro de Estados</h2>
+        {/* <h2>Cadastraro de Estados</h2> */}
         <CadastroUF />
         <Lista id="codigoUF" items={ufs} />
 

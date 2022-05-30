@@ -4,7 +4,7 @@ import './Sidebar.css';
 const Sidebar = () => {
   return (
     <aside>
-        <ul>
+        <ul className='lista-lateral'>
             <li>
                 <p><strong>Clone do LinkedIn:</strong></p>
                 <p>Linkedin</p>

@@ -10,7 +10,7 @@ export const CardUF = ({estado}) => {
   return (
     <li className='card'>
      <div className="card_header">
-         <h4>{estado.nome}</h4>
+         <h4 className='titulo'>{estado.nome}</h4>
        
        
          <button className='optionsBtn'  onClick={()=>removerEstado(estado.codigoUF)}>
