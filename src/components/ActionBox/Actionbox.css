@@ -1,0 +1,52 @@
+*,*:befor,*:after{
+    box-sizing: border-box;
+}
+
+
+.action-box{
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid blue; */
+
+    position: relative;
+}
+
+
+
+.action-btn{
+    background-color: #fff ;
+    border-color:black;
+    
+    
+}
+
+.action-list{
+    display: none;
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 1.3rem;
+    
+    position: absolute;
+    top:2.2rem;
+    z-index:9999;
+    box-shadow:  0 5px 25px #243b3040 !important;
+    border-radius: 4px;
+}
+.action-list.mostrar{
+    display: block;
+}
+
+
+.action-list li{
+cursor:pointer;
+}
+
+
+.action-list li:hover{
+    background-color: orange;
+    color:#fff;
+}

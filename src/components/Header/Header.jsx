@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header>
 
-        <p className='titulo'>{ titulo === '' ? <p>Home</p> : <p>{titulo.charAt(0).toUpperCase()+titulo.slice(1)}</p> }</p>
+        <div className='titulo'>{ titulo === '' ? <p>Home</p> : <p>{titulo.charAt(0).toUpperCase()+titulo.slice(1)}</p> }</div>
     </header>
   )
 }
