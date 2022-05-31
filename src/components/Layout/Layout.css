@@ -4,11 +4,12 @@ body{
     margin: 0;
     font-family: "Poppins",sans-serif;
 
-   background-image: url("./imgs/bg.png"), linear-gradient(#f4f0eb,#f4f0eb);
+   /* background-image: url("./imgs/bg1.png"), linear-gradient(#f4f0eb,#f4f0eb); */
+   background-image: url("./imgs/bg1.png");
    background-attachment: fixed;    
    background-repeat: repeat;
    background-size: contain;
-   background-color:transparent;
+   /* background-color:transparent; */
   
    
 }
