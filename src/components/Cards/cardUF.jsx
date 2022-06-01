@@ -1,26 +1,40 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useState,useRef } from 'react'
 import { ContextoUF } from '../../context/contextUF';
-import { Actionbox } from '../ActionBox';
+
 
 
 import './CardUF.css';
 
+import { useClicarFora } from '../../hooks/useClicarFora';
+
 export const CardUF = ({estado}) => {
 
-  const {removerEstado} = useContext(ContextoUF);
+const {removerEstado} = useContext(ContextoUF);
 
-  
+const [show, setShow] = useState(false);
+const popUpRef=useClicarFora(()=>{setShow(false)})
+
+ 
+
   return (
     <li className='card'>
      <div className="card_header">
          <h4 className='titulo'>{estado.nome}</h4>
        
-       
+       {/* ACTIONS */}
 
-         <Actionbox options={['apagar','editar','detalhes']} />
+        <div ref={popUpRef}  className="actions-container">
+          <button  onClick={()=>setShow(!show)} className='toggler' >Options</button>
+        <div  className={`action-pills ${show ? 'show': ''}`}>
+          <button name='deletar' className='action' onClick={()=> console.log(estado.nome)}>deletar</button>
+          <button name='atualizar' className='action' onClick={()=> console.log(estado.nome)}>atalizar</button>
+          <button name='detalhar' className='action' onClick={()=> console.log(estado.nome)}>detalhar</button>
+          <button name='desativar' className='action' onClick={()=> console.log(estado.nome)}>desativar</button>
+        </div>
+        </div>
 
-         
      </div>
+     {/* INFO */}
      <div className="card_body">
          <ul>
          <li>

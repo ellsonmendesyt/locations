@@ -86,7 +86,7 @@ useEffect(()=>{
     <article>
         <h2>Cadastraro de Municipios</h2>
 
-        {/* {JSON.stringify(estado)} */}
+        
 
 
       <form className='formulario'>

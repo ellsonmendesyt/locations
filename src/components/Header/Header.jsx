@@ -8,7 +8,7 @@ const Header = () => {
 
      const titulo = location.pathname.split('/')[1]
 
-  console.log(location)
+  // console.log(location)
   return (
     <header>
 

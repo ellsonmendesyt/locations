@@ -1,24 +1,20 @@
-import React, { useContext,useEffect } from 'react'
+import React, { useContext } from 'react'
+
 
 import { ContextoUF } from '../../context/contextUF';
-
-
 import './Estado.css';
-// import CadastroUF from '../../components/Formularios/CadastroUF';
-import { CadastroUF } from '../../components/Formularios/CadastroUF';
 import { Lista } from '../../components/Lista';
 
 
+
+
 const Estado = () => {
-const {ufs} = useContext(ContextoUF);
+const estados = useContext(ContextoUF);
+
 
   return (
     <article>
-        {/* <h2>Cadastraro de Estados</h2> */}
-        <CadastroUF />
-        <Lista id="codigoUF" items={ufs} />
-
-
+        <Lista items={estados} />
     </article>
   )
 }

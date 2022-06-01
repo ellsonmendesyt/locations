@@ -19,10 +19,14 @@ import { Pessoa } from "./pages/Pessoa";
 
 
 
+//DAODS MOCADOS
+
+import {estados} from './api/estados';
 
 
+import bairros from './api/bairros';
 
-
+import { ContextoBairro } from "./context/contextBairros";
 
 
 function App() {
@@ -46,21 +50,15 @@ const cadastrarEstado = async (novoEstado) => {
 
 //Metodos dos Municipios
 
-
-
-const pacoteUF={
-  ufs,
-  setUfs,
-  obterEstados,
-  removerEstado,
-  cadastrarEstado
-}
+///estados mocados
 
 
 
 
 
-const pacoteMu={}
+
+
+
 
 useEffect( ()=>{
 
@@ -70,11 +68,16 @@ useEffect( ()=>{
    iniciarBusca();
 },[])
 
+
+
+
+
   
   return (
     <>
-    <ContextoUF.Provider value={pacoteUF}>
-    <ContextoMunicipio.Provider value={pacoteMu}>
+    <ContextoUF.Provider value={estados}>
+    <ContextoMunicipio.Provider value={{}}>
+     <ContextoBairro.Provider value={bairros}>
      <Routes>
        <Route path='/' element={<Layout/>}>
       <Route index path='estados' element={<Estado  />} /> 
@@ -85,6 +88,7 @@ useEffect( ()=>{
       <Route path="*" element={<NotFound />} /> 
        </Route>
       </Routes> 
+      </ContextoBairro.Provider>
       </ContextoMunicipio.Provider>
       </ContextoUF.Provider>
     </>

@@ -5,7 +5,7 @@ import { useClicarFora } from '../../hooks/useClicarFora';
 
 
 
-export const Actionbox = ({options}) => {
+export const Actionbox = ({options,getOption}) => {
 
   const [show, setShow] = useState(false);
 
@@ -34,7 +34,7 @@ export const Actionbox = ({options}) => {
    <ul  className={`action-list ${show ? "mostrar" : ""}`}>
       {
         options.length >0 && options.map(option=>(
-         <li key={option+new Date()}>{option}</li>
+         <li onClick={()=>console.log(option)} key={option+new Date()*Math.random()}>{option}</li>
         ))
       }
       </ul>
