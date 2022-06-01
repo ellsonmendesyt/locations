@@ -4,6 +4,8 @@ import React, { useContext } from 'react'
 import { ContextoUF } from '../../context/contextUF';
 import './Estado.css';
 import { Lista } from '../../components/Lista';
+import { Cart } from '../../components/Cart/Cart';
+import { ActionBoxUF, UF } from '../../components/Lista/Lista';
 
 
 
@@ -14,7 +16,13 @@ const estados = useContext(ContextoUF);
 
   return (
     <article>
-        <Lista items={estados} />
+        <ul className='lista'>
+      {
+        estados.length>0 && estados.map(item=>(
+          item && <Cart specific={<UF item={item} />}  actionbox={<ActionBoxUF item={item}/>} key={item.nome} item={item} />
+        ))
+      }
+    </ul>
     </article>
   )
 }

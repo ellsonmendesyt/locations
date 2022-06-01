@@ -1,9 +1,13 @@
-import React, { useContext,useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 
 // import { ContextoUF } from '../../context/contextUF';
 import { ContextoUF } from '../../context/contextUF';
 import { Dropdown } from '../../components/Dropdown';
 import './Municipio.css';
+import { ContextoMunicipio } from '../../context/contextMunicipio';
+import { Lista } from '../../components/Lista';
+import { Cart } from '../../components/Cart/Cart';
+import { ActionBoxMU, MU } from '../../components/Lista/Lista';
 
 
 
@@ -11,8 +15,27 @@ import './Municipio.css';
 const Municipio = () => {
 
 //tras os Estados | UFs da contexto
-const {ufs} = useContext(ContextoUF);
+const municipios = useContext(ContextoMunicipio);
 
+  return (
+    <article>
+    <div className='lista'>
+    {
+        municipios.length>0 && municipios.map(item=>(
+          item && <Cart specific={<MU item={item} />}  actionbox={<ActionBoxMU item={item}/>} key={item.nome} item={item} />
+        ))
+      }
+    </div>
+          
+
+    </article>
+  )
+}
+
+export default Municipio
+
+
+/*
 
 const [estado,setEstado] = useState(null);
 const [municipio,setMunicipio] = React.useState({nome:'',codigoUF:'',status:''});
@@ -45,28 +68,6 @@ const tratarEnvio= async(e)=>{
   
 }
 
-
-/**-------------------------------------------------------------------
- Passamos uma lista de ESTADOS pro dropdown o que o usuario escolher 
- Porque preqisamos saber em qual Estado criar o MUNICIPIO
- 
- Parametros do Dropdown:
- 
- value:      ele vai mostrar a opção selecionada
-prompt:     texto que informa o que o usuario deve escolher
-getOption:  recupera o valor selecionado
-id:         usado na propriedade key do elemento ao ser mapeado
-label:      usado para mostrar o valor no dropdown
-
-
-  {
-    "codigoMunicipio": 1,
-    "codigoUF": 1,
-    "nome": "JUNDIAÍ",
-    "status": 1
-  }
-  ----------------------------------------------------------------------*/
-  
   
   
   //toa vez que o campo dinamico mudar, eu atualizo o campo de codigoUF
@@ -79,12 +80,7 @@ useEffect(()=>{
 },[estado])
 
 
-
-
-
-  return (
-    <article>
-        <h2>Cadastraro de Municipios</h2>
+<h2>Cadastraro de Municipios</h2>
 
         
 
@@ -108,10 +104,5 @@ useEffect(()=>{
       </form>
           {JSON.stringify(municipio)}
 
-          
 
-    </article>
-  )
-}
-
-export default Municipio
+*/

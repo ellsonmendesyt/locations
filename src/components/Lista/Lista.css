@@ -6,3 +6,45 @@
     
    
 }
+
+.specific-details{
+    /* outline: 1px solid orchid; */
+    padding: 10px;
+}
+
+.specific-details > *{
+    padding: 0;
+    margin: 0;
+}
+
+.action-box{
+    display: flex;
+    justify-content: space-between;
+    background-color:lightgray !important;
+}
+
+.action-box button{
+   
+    border:0;
+    background-color: transparent;
+    /* border:1px solid #ddd; */
+    /* border-radius: 6px; */
+  
+    flex:1;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 6px;
+}
+
+.action-box button:hover{
+    background-color: #0001;
+    color:#000;
+}
+.action-box button:first-child{
+    border-bottom-left-radius: 6px;
+}
+.action-box button:last-child{
+    border-bottom-right-radius: 6px;
+
+}

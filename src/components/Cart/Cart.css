@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.card{
+    border: 1px solid #ddd;
+   border-radius: 8px;
+   margin-bottom: 5px;
+   box-shadow:  0 2px 15px rgb(34 60 47 / 25%) !important;
+   
+}
+
+
+.card-title{
+
+    border-top-left-radius:  8px;
+    border-top-right-radius:  8px;
+    /* color:orange; */
+    /* outline: 1px solid orange; */
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.card-details{
+    /* background-color: olive; */
+    /* outline: 1px solid lime; */
+    
+    
+}
+
+.card-specific{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.card-title{
+
+}

@@ -14,6 +14,9 @@ import Municipio from "./pages/Municipio";
 ///contextos
 import {ContextoUF} from './context/contextUF';
 import {ContextoMunicipio} from './context/contextMunicipio';
+import { ContextoBairro } from "./context/contextBairros";
+
+
 import Bairro from "./pages/Bairro";
 import { Pessoa } from "./pages/Pessoa";
 
@@ -22,11 +25,11 @@ import { Pessoa } from "./pages/Pessoa";
 //DAODS MOCADOS
 
 import {estados} from './api/estados';
-
-
+import municipios from './api/municipios';
 import bairros from './api/bairros';
 
-import { ContextoBairro } from "./context/contextBairros";
+
+
 
 
 function App() {
@@ -76,7 +79,7 @@ useEffect( ()=>{
   return (
     <>
     <ContextoUF.Provider value={estados}>
-    <ContextoMunicipio.Provider value={{}}>
+    <ContextoMunicipio.Provider value={municipios}>
      <ContextoBairro.Provider value={bairros}>
      <Routes>
        <Route path='/' element={<Layout/>}>
@@ -96,3 +99,29 @@ useEffect( ()=>{
 }
 
 export default App;
+
+
+/*
+-------------
+pessoa 
+-------------
+{
+    "codigoPessoa": 1,
+    "nome": "JOÃO",
+    "sobrenome": "DA SILVA",
+    "idade": 22,
+    "login": "joao_silva",
+    "senha": "joao123",
+    "status": 1
+  }
+
+-----------------
+  Endereço
+-----------------
+  {
+    "codigoBairro": 2,
+    "codigoMunicipio": 2,
+    "nome": "CAMPO GRANDE",
+    "status": 1
+  }
+*/

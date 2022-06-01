@@ -17,28 +17,29 @@ export const UF= ({item})=>{
 
 //exclusivo do municipio
 export const MU= ({item})=>{
-  const {codigoMunicipio}=item;
+  const {codigoMunicipio,codigoUF}=item;
   return(
       <div className='specific-details'>
-         <p>{codigoMunicipio}</p>
+         <span>UF: {codigoUF}</span>
+         <span>Mu: {codigoMunicipio}</span>
       </div>
   )
 }
 
 
 export const BA= ({item})=>{
-  const {codigoBairro}=item;
+  const {codigoBairro,codigoMunicipio}=item;
+
   return(
       <div className='specific-details'>
          <p>{codigoBairro}</p>
+         <p>{codigoMunicipio}</p>
       </div>
   )
 }
 
 export const ActionBoxUF= ({item})=>{
-
   ///lista de acoes vem do contexto
-
 return(
    <div className='action-box'>
           <button onClick={()=>console.log(item.nome)}>Editar</button>
@@ -47,6 +48,39 @@ return(
    </div>
 )
 }
+
+
+
+export const ActionBoxMU= ({item})=>{
+  ///lista de acoes vem do contexto
+return(
+   <div className='action-box'>
+          <button onClick={()=>console.log(item.nome)}>Editar</button>
+          <button onClick={()=>console.log(item.nome)}>Excluir</button>
+          <button onClick={()=>console.log(item.nome)}>Detalhes</button>
+   </div>
+)
+}
+
+
+
+export const ActionBoxBA= ({item})=>{
+  ///lista de acoes vem do contexto
+return(
+   <div className='action-box'>
+          <button onClick={()=>console.log(item.nome)}>Editar</button>
+          <button onClick={()=>console.log(item.nome)}>Excluir</button>
+          <button onClick={()=>console.log(item.nome)}>Detalhes</button>
+   </div>
+)
+}
+
+
+
+
+
+
+
 
 
 

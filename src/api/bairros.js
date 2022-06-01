@@ -13,4 +13,4 @@ const bairros=[
     }
   ];
 
-  export default bairros
+  export default bairros;
