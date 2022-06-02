@@ -10,6 +10,11 @@
 .specific-details{
     /* outline: 1px solid orchid; */
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    /* outline: 1px solid olive !important; */
 }
 
 .specific-details > *{
@@ -20,31 +25,37 @@
 .action-box{
     display: flex;
     justify-content: space-between;
-    background-color:lightgray !important;
+    /* background-color:lightgray !important; */
 }
 
 .action-box button{
    
     border:0;
     background-color: transparent;
-    /* border:1px solid #ddd; */
-    /* border-radius: 6px; */
+
   
     flex:1;
     cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
+    font-size: 13px;
+    color:#0009;
     padding: 6px;
+    letter-spacing: 1px;
+    color:#909090;
+    font-weight:500;
+    background-color: #ddd;
 }
 
 .action-box button:hover{
-    background-color: #0001;
+    /* background-color: #0001; */
+    background-color:#ebebeb;
     color:#000;
 }
 .action-box button:first-child{
     border-bottom-left-radius: 6px;
+    border-right:1px solid #eee;
 }
 .action-box button:last-child{
     border-bottom-right-radius: 6px;
-
+    border-left:1px solid #eee;
+   
 }

@@ -5,7 +5,7 @@ import { ContextoUF } from '../../context/contextUF';
 import { Dropdown } from '../../components/Dropdown';
 import './Bairro.css';
 import { ActionBoxBA, BA } from '../../components/Lista/Lista';
-import { ContextoBairro } from '../../context/contextBairros';
+import { ContextoBairro } from '../../context/contextoBairro';
 import { Cart } from '../../components/Cart/Cart';
 
 

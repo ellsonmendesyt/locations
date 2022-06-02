@@ -3,7 +3,7 @@ const bairros=[
       "codigoBairro": 1,
       "codigoMunicipio": 1,
       "nome": "CENTRO",
-      "status": 1
+      "status": 2
     },
     {
       "codigoBairro": 2,

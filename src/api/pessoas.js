@@ -15,6 +15,6 @@ export default pessoas=[
       "idade": 42,
       "login": "maria_aparecida",
       "senha": "maria123",
-      "status": 1
+      "status": 2
     }
   ]

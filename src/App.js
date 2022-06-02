@@ -13,8 +13,8 @@ import Municipio from "./pages/Municipio";
 
 ///contextos
 import {ContextoUF} from './context/contextUF';
-import {ContextoMunicipio} from './context/contextMunicipio';
-import { ContextoBairro } from "./context/contextBairros";
+import {ContextoMunicipio} from './context/contextoMunicipio';
+import { ContextoBairro } from "./context/contextoBairro";
 
 
 import Bairro from "./pages/Bairro";
@@ -78,7 +78,7 @@ useEffect( ()=>{
   
   return (
     <>
-    <ContextoUF.Provider value={estados}>
+    <ContextoUF.Provider value={ufs}>
     <ContextoMunicipio.Provider value={municipios}>
      <ContextoBairro.Provider value={bairros}>
      <Routes>

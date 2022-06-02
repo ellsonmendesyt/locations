@@ -20,8 +20,8 @@ export const MU= ({item})=>{
   const {codigoMunicipio,codigoUF}=item;
   return(
       <div className='specific-details'>
-         <span>UF: {codigoUF}</span>
-         <span>Mu: {codigoMunicipio}</span>
+         <span>UF &nbsp;&nbsp; {codigoUF}</span>
+         <span>MU &nbsp;&nbsp;{codigoMunicipio}</span>
       </div>
   )
 }
@@ -32,8 +32,8 @@ export const BA= ({item})=>{
 
   return(
       <div className='specific-details'>
-         <p>{codigoBairro}</p>
-         <p>{codigoMunicipio}</p>
+         <span title='código do bairro'>bai&nbsp;&nbsp;{codigoBairro}</span>
+         <span title='código municipio'>mun &nbsp;&nbsp;{codigoMunicipio}</span>
       </div>
   )
 }

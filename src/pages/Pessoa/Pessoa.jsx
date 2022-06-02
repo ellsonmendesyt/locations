@@ -1,19 +1,30 @@
 import React, { useContext, useState } from 'react'
-import { ContextoUF } from '../../context/contextUF';
 import './Pessoa.css';
 
 import { Dropdown } from '../../components/Dropdown';
-import { Lista } from '../../components/Lista';
+
+
+
+
+import { ContextoUF } from '../../context/contextUF';
+import {ContextoMunicipio} from '../../context/contextoMunicipio';
+import { ContextoBairro } from '../../context/contextoBairro';
+
 
 export const Pessoa = () => {
 
-    const {ufs} = useContext(ContextoUF);
+   
+    const estados = useContext(ContextoUF);
+    const municipios= useContext(ContextoMunicipio);
+    const bairros = useContext(ContextoBairro);
 
 
     const [estado,setEstado] = useState(null);
-    const [municipio,setMunicipio] = React.useState({nome:'',codigoUF:'',status:''});
+    const [municipio,setMunicipio] = React.useState(null);
+    const [bairro,setBairro] = React.useState(null);
 
 
+   bairro && console.log(bairro);
 
   return (
     <div className='pessoa'>
@@ -38,34 +49,39 @@ export const Pessoa = () => {
             <input className='pessoa_campo--endereco' type="text" name="numero" placeholder='numero' />
             <input className='pessoa_campo--endereco' type="text" name="complemento" placeholder='bairro' />
 
-        <Dropdown 
+         <Dropdown 
           value={estado} 
           prompt="Estado"
-          getOption={(value)=>setEstado(value)} options={ufs} 
+          getOption={(value)=>setEstado(value)} options={estados} 
           id="codigoUF" 
           label="nome"
           />
+
+
+         
         <Dropdown 
-          value={estado} 
-          prompt="Estado"
-          getOption={(value)=>setEstado(value)} options={ufs} 
+          value={municipio} 
+          prompt="Municipio"
+          getOption={(value)=>setMunicipio(value)} options={municipios} 
           id="codigoUF" 
           label="nome"
           />
+
+           
         <Dropdown 
-          value={estado} 
-          prompt="Estado"
-          getOption={(value)=>setEstado(value)} options={ufs} 
-          id="codigoUF" 
+          value={bairro} 
+          prompt="Bairro"
+          getOption={(value)=>setBairro(value)} options={bairros} 
+          id="codigoMunicipio" 
           label="nome"
-          />
+          /> 
            
             <button type='submit'>Salvar</button>
         </form>
     </div>
 
         {/* LISTA  TEMPORARIA*/}
-        <Lista id="codigoUF" items={ufs} />
+        {/* <Lista id="codigoUF" items={estados} /> */}
 
     </div>
   )

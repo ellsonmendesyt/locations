@@ -19,7 +19,7 @@ const estados = useContext(ContextoUF);
         <ul className='lista'>
       {
         estados.length>0 && estados.map(item=>(
-          item && <Cart specific={<UF item={item} />}  actionbox={<ActionBoxUF item={item}/>} key={item.nome} item={item} />
+          item && <Cart specific={<UF item={item} />}  actionbox={<ActionBoxUF item={item}/>} key={item.nome + new Date().valueOf()*new Date().valueOf()} item={item} />
         ))
       }
     </ul>

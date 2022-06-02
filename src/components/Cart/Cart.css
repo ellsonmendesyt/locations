@@ -5,10 +5,12 @@
 }
 
 .card{
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+   /* border:1px solid  #00000014; */
    border-radius: 8px;
    margin-bottom: 5px;
-   box-shadow:  0 2px 15px rgb(34 60 47 / 25%) !important;
+   /* box-shadow:  0 2px 15px rgb(34 60 47 / 25%) !important; */
+   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 2px 3px rgb(0 0 0 / 20%);
    
 }
 
@@ -19,9 +21,15 @@
     border-top-right-radius:  8px;
     /* color:orange; */
     /* outline: 1px solid orange; */
-    background-color: lightgray;
+    background-color: #909090 ;
     padding: 10px;
+    border:0;
+    /* color:#f3f2ef; */
 }
+.card-title.ativo{
+    background-color: lime ;
+}
+
 
 .card-details{
     /* background-color: olive; */
@@ -34,10 +42,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-size: 14px;
+    color:#0009;
 }
 
 
 
-.card-title{
-
-}
