@@ -1,0 +1,25 @@
+
+.svg{
+    position: relative;
+}
+
+.state{
+    transition: all .3s;
+    z-index: 88;
+}
+ .state:active{
+    stroke:orange !important;
+    fill:blue;
+    position: absolute;
+  
+    transform: scale(2);
+    transform: translateX(-50%);
+    transform: translateY(-10%);
+}
+
+#MA:hover{
+    fill: orange;
+    z-index: 999;
+    transform: perspective(1000px) translate3d(10px, 0, 0px) skew(20px);
+    
+}

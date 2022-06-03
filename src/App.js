@@ -1,5 +1,5 @@
 
-import Home from "./pages/Estado";
+import Home from "./pages/Home";
 
 import {Routes, Route} from 'react-router-dom';
 import NotFound from "./components/NotFound";
@@ -83,6 +83,7 @@ useEffect( ()=>{
      <ContextoBairro.Provider value={bairros}>
      <Routes>
        <Route path='/' element={<Layout/>}>
+      <Route index path='home' element={<Home  />} /> 
       <Route index path='estados' element={<Estado  />} /> 
       <Route index path='municipios' element={<Municipio  />} /> 
       <Route index path='bairros' element={<Bairro  />} /> 
