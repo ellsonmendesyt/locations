@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 
 import { ContextoUF } from '../../context/contextUF';
 import './Estado.css';
-import { CardUF } from '../../components/Cards';
+import  CardUF  from '../../components/Cards/cardUF';
 
 
 

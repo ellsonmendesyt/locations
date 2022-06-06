@@ -1,1 +1,0 @@
-export {CardUF} from './cardUF';

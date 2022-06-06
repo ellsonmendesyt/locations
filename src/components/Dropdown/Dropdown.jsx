@@ -42,13 +42,18 @@ const fecharDropdown = (e) => {
 
       <div className={`options  ${open ? "open" : null}`}>
         {
-          options &&  options.length>0 ?options.map(option=> 
+          options &&  options.length>0 ?
+         
+          options.map(option=> 
+          
             <div 
             key={option[id]}
             className={`option ${value===option ? "selected": label}`} 
-            onClick={()=>{getOption(option);
+            onClick={()=>{getOption(option)
             setOpen(false)
-            }}>{option.nome}</div>): <p>Sem Dropdown</p>
+            }}>{option.nome}</div>)
+           
+            : <p>Sem Dropdown</p>
         }
       </div>
 

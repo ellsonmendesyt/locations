@@ -6,28 +6,36 @@ import { Dropdown } from '../../components/Dropdown';
 import './Municipio.css';
 
 
-import { Cart } from '../../components/Cart/Cart';
-import { ActionBoxMU, MU } from '../../components/Lista/Lista';
+
+
 import { Form } from '../../components/Form';
 import { FormInput } from '../../components/FormInput/FormInput';
 import axios from 'axios';
+import  CardMU  from '../../components/Cards/CardMU';
 
 
 
 
 const Municipio = () => {
 
-  const estados = useContext(ContextoUF);
+  const gerenciadorEstados = useContext(ContextoUF);
+  const{ufs:estados}=gerenciadorEstados;
+
+  // estado selecionaod no dropdown
   const [estado,setEstado] = useState(null);
   const [municipio, setMunicipio] = useState({nome:'',status:''});
+
+  //municipios cadastrados 
   const [municipios, setMunicipios] = useState([]);
 
+  // pega os dados do campo
   const manipuladorDeMudanca=(e)=>{
     setMunicipio({...municipio,[e.target.name]:e.target.value});
   }
 
 const limparDados =()=>{
   setMunicipio({nome:'',status:''});
+  setEstado(null);
 
 }
   
@@ -67,30 +75,37 @@ obterMunicipios();
 
 
 
-  
+
 
 
     <Form handleSubmit={(e)=>enviarDadosMunicipio(e)} >
-    <Dropdown 
-      value={estado} 
-      prompt="Estado"
-      getOption={(value)=>setEstado(value)} options={estados} 
-      id="codigoUF" 
-      label="nome"
-    />
 
 
-    <FormInput value={municipio.status} handler={manipuladorDeMudanca}  label='Status' name='status' />
-    <FormInput value={municipio.nome} handler={manipuladorDeMudanca}   label='Nome' name='nome' />
-    <button type='submit'>Enviar</button>
-</Form>
-<hr style={{margin:"30px 0px"}} />
+         {/* {JSON.stringify(estado)} */}
+
+          <Dropdown 
+          value={estado} 
+          prompt="Municipio"
+         
+          getOption={(value)=>setEstado(value)} 
+          options={estados} 
+          id="nome" 
+          label="nome"
+          /> 
+
+
+        <FormInput value={municipio.status} handler={manipuladorDeMudanca}  label='Status' name='status' />
+        <FormInput value={municipio.nome} handler={manipuladorDeMudanca}   label='Nome' name='nome' />
+        <button type='submit'>Enviar</button>
+    </Form>
+    
+    <hr style={{margin:"30px 0px"}} />
  
 
     <div className='lista'>
     {
         municipios.length>0 && municipios.map(item=>(
-          item && <Cart specific={<MU item={item} />}  actionbox={<ActionBoxMU item={item}/>} key={item.nome} item={item} />
+          item && <CardMU key={item.nome} municipio={item} />
         ))
       }
     </div>

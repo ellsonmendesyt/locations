@@ -7,7 +7,7 @@ import './CardUF.css';
 
 import ufImg from './imgs/estado.png';
 
-export const CardUF = ({estado}) => {
+const CardUF = ({estado}) => {
 
 
 // tras os Estados | UFs e seus manipuladores
@@ -93,3 +93,5 @@ return (
     </div>
   )
 }
+
+export default CardUF;
