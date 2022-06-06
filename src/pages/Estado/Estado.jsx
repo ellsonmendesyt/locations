@@ -3,23 +3,23 @@ import React, { useContext } from 'react'
 
 import { ContextoUF } from '../../context/contextUF';
 import './Estado.css';
-import { Lista } from '../../components/Lista';
-import { Cart } from '../../components/Cart/Cart';
-import { ActionBoxUF, UF } from '../../components/Lista/Lista';
+import { CardUF } from '../../components/Cards';
 
 
 
 
 const Estado = () => {
-const estados = useContext(ContextoUF);
 
+
+const gerenciadorEstados = useContext(ContextoUF);
+const{ufs:estados}=gerenciadorEstados;
 
   return (
     <article>
         <ul className='lista'>
       {
         estados.length>0 && estados.map(item=>(
-          item && <Cart specific={<UF item={item} />}  actionbox={<ActionBoxUF item={item}/>} key={item.nome + new Date().valueOf()*new Date().valueOf()} item={item} />
+          item && <CardUF key={item.codigoUF} estado={item}/>
         ))
       }
     </ul>

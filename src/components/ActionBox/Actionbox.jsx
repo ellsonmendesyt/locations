@@ -1,7 +1,8 @@
-import React,{useState,useEffect,useRef} from 'react'
+import React,{useState,useEffect,useRef, useContext} from 'react'
 import './Actionbox.css';
 
 import { useClicarFora } from '../../hooks/useClicarFora';
+
 
 
 
@@ -18,7 +19,6 @@ export const Actionbox = ({options,getOption}) => {
 
     setShow(!show);
  }
-
 
 
 

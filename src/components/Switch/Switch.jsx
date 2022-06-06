@@ -1,32 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Switch.css';
 
-const Switch = ({ isOn, handleToggle, colorOne, colorTwo }) => {
 
-    const [on, setOn] = React.useState(false);
-    const handleSwitch = (e)=>{
-        setOn(!on);
-    }
+export const Switch = ({nome,ativo, changeHandler}) => {
 
+
+  return (
+    <label  className="switch" >
+      <input name={nome}  checked={ativo===1? true:false} onChange={()=>changeHandler(!ativo)} type="checkbox" />
     
-    return (
-        <>
-          <input
-            checked={isOn}
-            onChange={handleToggle}
-            className="switch-checkbox"
-            id={`switch`}
-            type="checkbox"
-          />
-          <label
-            style={{ background: isOn ? colorOne : colorTwo }}
-            className="switch-label"
-            htmlFor={`switch`}
-          >
-            <span className={`switch-button`} />
-          </label>
-        </>
-      );
+      <span className="slider round"></span>
+    </label>
+  )
 }
 
-export default Switch

@@ -27,6 +27,7 @@ import { Pessoa } from "./pages/Pessoa";
 import {estados} from './api/estados';
 import municipios from './api/municipios';
 import bairros from './api/bairros';
+import useFetch from "./hooks/useFetch";
 
 
 
@@ -36,12 +37,14 @@ function App() {
 
 
 const [ufs, setUfs] = React.useState([]);
+// const [ufs,carregando,erro]=useFetch(`http:localhost:3333/uf`);
 
 // metodos dos Estados
 const obterEstados= async () => {
   const response= await axios.get(`http://localhost:3333/uf`);
   setUfs(response.data);
 }
+
 const removerEstado= async(codigoUf)=>{
   const response= await axios.delete(`http://localhost:3333/uf/${codigoUf}`);
   setUfs(response.data);
@@ -52,9 +55,32 @@ const cadastrarEstado = async (novoEstado) => {
 };
 
 //Metodos dos Municipios
-
+const obterMunicipios= async () => {
+  const response= await axios.get(`http://localhost:3333/municipio`);
+  
+}
 ///estados mocados
 
+
+
+
+
+
+
+
+const atualizarStatusEstado= async(estado)=>{
+  const novoStatus = (estado.status===1) ? 2: 1;
+estado={...estado,status:novoStatus}
+  const response =await axios.put(`http://localhost:3333/uf`,estado,{ContentType:"application/json"});
+  setUfs(response.data);
+}
+
+const atualizarEstado= async(estado)=>{
+
+ const res= await axios.put(`http://localhost:3333/uf`,estado,{ContentType:"application/json"});
+  console.log('==========')
+  console.log(res.data)
+}
 
 
 
@@ -78,8 +104,8 @@ useEffect( ()=>{
   
   return (
     <>
-    <ContextoUF.Provider value={ufs}>
-    <ContextoMunicipio.Provider value={municipios}>
+    <ContextoUF.Provider value={{ufs,setUfs,obterEstados,removerEstado,atualizarStatusEstado,atualizarEstado,cadastrarEstado}}>
+    <ContextoMunicipio.Provider value={{municipios,obterMunicipios}}>
      <ContextoBairro.Provider value={bairros}>
      <Routes>
        <Route path='/' element={<Layout/>}>
