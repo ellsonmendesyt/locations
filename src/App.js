@@ -76,10 +76,9 @@ estado={...estado,status:novoStatus}
 }
 
 const atualizarEstado= async(estado)=>{
-
- const res= await axios.put(`http://localhost:3333/uf`,estado,{ContentType:"application/json"});
-  console.log('==========')
-  console.log(res.data)
+ console.log(estado)
+ const res=await axios.put(`http://localhost:3333/uf`,estado,{ContentType:"application/json"});
+ setUfs(res.data)
 }
 
 

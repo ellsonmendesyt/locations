@@ -102,6 +102,18 @@ position: relative;
     padding: 3px 7px;
     color:#fff;
 }
+
+.action__btn:disabled{
+    cursor: not-allowed;
+  border:1px solid #ddd;
+  color:#ddd;
+  
+}
+.action__btn:disabled:hover{
+    background-color: transparent;
+    color:#ddd;
+}
+
 .action__btn:hover{
  color:#508dd7;
  background-color: #fff;
