@@ -41,6 +41,26 @@ article p{
 }
 
 
+.painel{
+    display: flex;
+    width:100%;
+    border: 1px solid #ddd;
+    margin-bottom: 50px;
+    justify-content: center;
+    /* padding: 10px 0px; */
+    
+}
+
+.barra__busca{
+ /* display: block; */
+}
+
+/* .barra__busca.mostrar__busca{
+    display: block;
+} */
+
+
+
 
 @media (min-width:600px){
     .formulario_grupo{

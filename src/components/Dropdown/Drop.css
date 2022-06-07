@@ -48,7 +48,7 @@
   padding: 1px 52px 6px 10px;
   transition: all 200ms ease;
   width: 100%;
-
+  white-space: nowrap;
 }
 
 .dropdown .options {
@@ -87,6 +87,7 @@
 .dropdown .option.selected,
 .dropdown .option:hover {
   background-color: rgba(255, 255, 255, 0.111);
+  
 }
 
 button{
