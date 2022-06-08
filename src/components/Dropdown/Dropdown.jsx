@@ -42,8 +42,8 @@ const fecharDropdown = (e) => {
 
       <div className={`options  ${open ? "open" : null}`}>
         {
-          options &&  options.length>0 ?
-         
+          options && options.length>0 ?
+          
           options.map(option=> 
           
             <div 

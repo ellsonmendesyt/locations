@@ -9,6 +9,8 @@ const CardPes = ({pessoa}) => {
 
 
 
+
+
  const closeModal = () => {
     setIsModalOpen(false);
 }
@@ -41,8 +43,6 @@ const CardPes = ({pessoa}) => {
           
             <Modal item={pessoa} onClose={()=>closeModal()} open={isModalOpen}>
               
-
-
             </Modal>
            
         </div>

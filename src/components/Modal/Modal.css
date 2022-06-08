@@ -1,16 +1,17 @@
 .modal{
     width:100%;
-    /* max-width: 400px; */
-    /* height: 200px; */
+   height: 100%;
     border: 1px solid #ddd;
     color:#fff;
     display: block;
- position: fixed;
- top:0%;
- left:0%;
- bottom: 0%;
+ position: absolute;
 
- /* transform: translate(-50%,-50%); */
+ top:0px;
+ left:0px;
+ bottom: 0px;
+ right:0px;
+
+
     z-index: 10001;
     padding: 1rem;
     background-color: cornsilk;
@@ -31,7 +32,45 @@
 
 
 
-.endereco{
-    color:#000;
+
+
+
+.modal__body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.modal__footer{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endereco{
+    margin: 20px auto;
+    color:#000;
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 10%) 0 4px 6px -1px, rgb(0 0 0 / 6%) 0 2px 4px -1px;  
+    padding: 1rem 3rem;
+    width:100%;
+    overflow-y: auto;
+
+    max-width: 300px;
+}
+
+
+/* BOTAO DO CARTAO DE ENDEREÇO */
+.endereco__acoes{
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.endereco__acao--btn{
+ background-color: #fff;
+ padding: .3rem .4rem;
+ border-radius: 8px;
+}
