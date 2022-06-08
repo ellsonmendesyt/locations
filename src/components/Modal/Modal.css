@@ -1,0 +1,37 @@
+.modal{
+    width:100%;
+    /* max-width: 400px; */
+    /* height: 200px; */
+    border: 1px solid #ddd;
+    color:#fff;
+    display: block;
+ position: fixed;
+ top:0%;
+ left:0%;
+ bottom: 0%;
+
+ /* transform: translate(-50%,-50%); */
+    z-index: 10001;
+    padding: 1rem;
+    background-color: cornsilk;
+}
+
+.overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 10000;
+    background:rgba(0,0,0,0.7);
+    transition: all .2s;
+    
+
+}
+
+
+
+.endereco{
+    color:#000;
+}
+

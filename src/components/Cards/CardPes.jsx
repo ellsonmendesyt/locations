@@ -1,8 +1,19 @@
 import React from 'react'
+import Modal from '../Modal/Modal';
 
 import './CardPes.css';
 
 const CardPes = ({pessoa}) => {
+
+ const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+
+
+ const closeModal = () => {
+    setIsModalOpen(false);
+}
+
+
   return (
     <div className='card__pessoa'>
         <div className="card__pessoa--header">
@@ -26,13 +37,19 @@ const CardPes = ({pessoa}) => {
                 <span><i className="fa fa-info-circle status" aria-hidden="true"></i></span>
                 <span>{pessoa.status===1?'ativo':'inativo'}</span>
             </div>
-            
+
+          
+            <Modal item={pessoa} onClose={()=>closeModal()} open={isModalOpen}>
+              
+
+
+            </Modal>
            
         </div>
 
         <div className="card__pessoa--footer">
             
-            <button className="acao">modificar</button>
+            <button onClick={()=> setIsModalOpen(! isModalOpen) } className="acao">modificar</button>
         </div>
     </div>
   )
