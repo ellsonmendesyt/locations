@@ -8,7 +8,7 @@
     /* border: 1px solid #ddd; */
     max-width: 450px;
     width:100%;
-    min-height: 200px;
+    /* min-height: 100px; */
     background-color:var(--cor-principal);
     border-radius: 8px;
     overflow: hidden;
@@ -66,7 +66,7 @@
  border-radius: 8px;
  color:#fff;
  cursor: pointer;
- padding: .5rem 1rem;
+ padding: .2rem .7rem;
 
 }
 

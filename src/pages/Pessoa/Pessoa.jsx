@@ -5,6 +5,7 @@ import { ContextoUF } from '../../context/contextUF';
 import { Form } from '../../components/Form';
 import axios from 'axios';
 import { FormInput } from '../../components/FormInput/FormInput';
+import CardPes from '../../components/Cards/CardPes';
 
 
 export const Pessoa = () => {
@@ -292,9 +293,9 @@ setEndereco({...endereco,codigoBairro:bairro.codigoBairro,[e.target.name]:e.targ
       <div className="lista ">
         {
           pessoas.length> 0 && pessoas.map(pessoa=>(
-            <div key={pessoa.nome+pessoa.codigoPessoa}>
-              <p>{pessoa.nome}</p>  
-             </div>
+            <CardPes pessoa={pessoa} key={pessoa.nome+pessoa.codigoPessoa}/>
+             
+             
           ))
         }
       </div>
