@@ -37,7 +37,7 @@ const [municipios,setMunicipios] = useState([]);
 const [bairro,setBairro] = useState(null);
 const [bairros,setBairros] = useState([]);
 
-
+const [jaRetornou,setJaRetornou] = useState(false);
 
 
 const [novoEndereco,setNovoEndereco] = useState({
@@ -52,6 +52,9 @@ const [novoEndereco,setNovoEndereco] = useState({
 const [copiaEndereco,setCopiaEndereco] = useState(null)
 const [enderecoEmAtualizacao,setEnderecoEmAtualizacao] = useState(null)
 
+
+
+const [editando,setEditando] = useState(false);
 
 
 const buscarPessoaCompleta=async(codigoPessoa)=>{
@@ -94,24 +97,101 @@ passa os valores correspondents pro dropdown
 */
 const modficarEndereco=async(endereco)=>{
     console.log(endereco)
-
+ setEditando(true)
 setEnderecoEmAtualizacao(endereco);
 setListaEnderecos( listaEnderecos.filter((end=> end.codigoEndereco!=endereco.codigoEndereco)))
 setNovoEndereco(endereco);
-
+setEditando(false)
 
 
 }
-const excluirEndereco=()=>{
+const excluirEndereco=(endereco)=>{
+ if(listaEnderecos.length===0){
+     alert("Lista de endereços vazia")
+     return;
+ }
 
+     const novaLista = listaEnderecos.filter(ender=> ender.codigoEndereco!=endereco.codigoEndereco)
+        setListaEnderecos(novaLista);
 }
 
 const cancelarEdicaoEndereco=(e)=>{
     e.preventDefault();
-    setListaEnderecos([...listaEnderecos,enderecoEmAtualizacao]);
+      if(jaRetornou){
+          alert("Não é possivel desfazer a edição duas vezes ou algo inexistente!")
+          return;
+      }
+
+        setListaEnderecos([...listaEnderecos,enderecoEmAtualizacao]);
+        setCopiaEndereco(null)
+        setNovoEndereco(enderecoVazio)
+        setEnderecoEmAtualizacao(enderecoVazio);
+        setBairro(null)
+        setEstado(null)
+        setMunicipio(null)
+        setJaRetornou(true)
+        setEditando(false)
+}
+
+
+/*
+  Verifica se todos os campos foram preenchidos
+  adiciona o novo endereço na lista de endereços
+  exclui o endereço temporario (a copia)
+*/
+
+const adicionarNovoEndereco=(e)=>{
+    e.preventDefault();
+    setEditando(true)
+   
+   if(novoEndereco.nomeRua===''||novoEndereco.numero===''||novoEndereco.cep==='' || novoEndereco.complemento===''){
+    alert('Preencha todos os campos');
+    return;
+ }
+
+ if(!bairro){
+    alert('Selecione um bairro');
+    return;
+ }
+    const enderecoAtualizado={...novoEndereco,codigoBairro:bairro.codigoBairro}
+    setListaEnderecos([...listaEnderecos,enderecoAtualizado]);
     setNovoEndereco(enderecoVazio)
     setEnderecoEmAtualizacao(enderecoVazio);
+    setCopiaEndereco(enderecoVazio);
+    setBairro(null)
+    setEstado(null)
+    setMunicipio(null)
+    setJaRetornou(true)
+    setEditando(false)
+    
 }
+
+
+
+/*
+  Verifica se a pessoa tem pelo menos um endeço
+  verifica sem não tem algum endereço em ediçao
+  atualiza a lista de endereços da pessoa
+  manda salvar no banco
+  limpa os campos
+*/
+const atualizarPessoa=async(e)=>{
+   e.preventDefault();
+    if(listaEnderecos.length===0){
+        alert("Adicione ao menos um endereco")
+        return;
+    }
+
+    if(bairro){
+        alert("Termine de editar o endereco")
+        return;
+    }
+
+ console.log('pessoa atualizada')
+
+  
+}
+
 
 
 
@@ -144,8 +224,7 @@ useEffect(()=>{
         await obterMunicipiosPorCodigoUF(estado);
       }
       buscarMunicipios();
-      console.log('============')
-      if (estado)console.log(estado)
+      
   },[estado])
 
 //quando abrir o modal deve buscar a pessoa completa
@@ -173,7 +252,7 @@ if(!open) return null;
       </div>    
        <div className="modal__body">
     {/* FORMULARIO DA PESSOA */}
-        <Form >
+        <Form handleSubmit={(e)=>{atualizarPessoa(e)}}>
           <FormInput 
           type='text'
           label='Nome'
@@ -218,11 +297,11 @@ if(!open) return null;
           name="status"
           handler={{}}
           />
-          <button type='submit'>Salvar</button>
+          <button type='submit' >Salvar</button>
      </Form>
      {/* ========================== */}
 
-    <Form >
+    <Form  handleSubmit={(e)=>atualizarPessoa(e)} >
         <Dropdown 
         value={estado} 
         prompt="Estado"
@@ -278,7 +357,7 @@ if(!open) return null;
         name="cep"
         handler={(e)=>tratarDadosEndereco(e)}
         />
-        <button>Adicionar</button>
+        <button onClick={(e)=>adicionarNovoEndereco(e) } >Adicionar</button>
         <button onClick={(e)=>cancelarEdicaoEndereco(e) }>cancelar</button>
     </Form> 
     {/* ============== fim modal de Ediçao============== */}
