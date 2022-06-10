@@ -50,9 +50,17 @@ const removerEstado= async(codigoUf)=>{
   setUfs(response.data);
 }
 const cadastrarEstado = async (novoEstado) => {
-  const response = await axios.post(`http://localhost:3333/uf`, novoEstado, {ContentType:"application/json"});
-  setUfs(response.data);
+  try {
+    const response = await axios.post(`http://localhost:3333/uf`, novoEstado, {ContentType:"application/json"});
+    setUfs(response.data);
+    
+ } catch (error) {
+   console.log(error.message)
+ }
+  
 };
+
+
 
 //Metodos dos Municipios
 const obterMunicipios= async () => {

@@ -85,7 +85,7 @@ obterMunicipios();
 
           <Dropdown 
           value={estado} 
-          prompt="Municipio"
+          prompt="Estado"
          
           getOption={(value)=>setEstado(value)} 
           options={estados} 

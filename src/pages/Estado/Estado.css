@@ -1,5 +1,6 @@
 article{
     padding: 30px;
+    position: relative;
 }
 
 .lista{
@@ -18,40 +19,47 @@ article{
 
 }
 
-@media (min-width:600px){
-    .lista{
-        /* flex-direction: row; */
-    }
-}
 
-/*
-article h2{
+
+.cadastro__popup{
+    background: orange;
+     z-index: 999999999999;
+     max-width: 300px;
+     border-radius: 8px;
+     position: absolute;
+     top: -600px;
+     left: 40%;
+     animation: sumir .5s;
+     transform-origin: center center;
    
-    color: #088475;
-}
-
-article video{
-    display: block;
-    width: 100%;
-}
-
-article p{
-    margin-top: 30px;
-    color: #777;
-    line-height: 2em;
-}
-
-*/
-
-/* @media screen and (max-width:1200px){
-    article{
-        grid-column:span 2;
     }
+    
+    .cadastro__popup .cadastro__title{
+        font-size: 15px;
+        text-align: center;
+        padding-top: 10px;
+        color: #f6f6f6;
+    }
+    
+    .cadastro__popup.show__popup{
+
+    visibility: visible;
+    animation: aparecer .4s forwards;
+    
+}
+    
+@keyframes aparecer{
+   from{transform: translateY(-600px)}
+    to{transform: translateY(700px);}
 }
 
-@media screen and (max-width:980px){
-    article{
-        grid-column:span 3;
-        outline:2px dotted orange;
-    }   
-} */
+@keyframes sumir{
+    0%{transform: translateY(700px);}
+    70%{opacity: 1;}
+    100%{top: -600px;opacity: 0;}
+}
+
+
+@media (min-width:600px){
+    
+}
