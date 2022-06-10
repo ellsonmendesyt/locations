@@ -66,6 +66,12 @@ const buscarPessoaCompleta=async(codigoPessoa)=>{
    }
 
 
+const tratarDadosPessoais=(e)=>{
+    e.preventDefault();
+    setPessoa({...pessoa,[e.target.name]:e.target.value});
+}
+
+
 const tratarDadosEndereco= async(e)=>{
     e.preventDefault();
     
@@ -187,7 +193,24 @@ const atualizarPessoa=async(e)=>{
         return;
     }
 
- console.log('pessoa atualizada')
+   
+
+    //   setPessoa({...pessoa,enderecos:[...pessoa.enderecos,endereco]});
+    // setPessoa({...pessoa,enderecos:[...pessoa.enderecos,[...listaEnderecos]]});
+    
+    // setPessoa({...pessoa,enderecos:[...listaEnderecos]});
+    const pessoaToSave={...pessoa,enderecos:[...pessoa.enderecos,...listaEnderecos]}
+    
+    try {
+      await axios.put('http://localhost:3333/pessoa',pessoaToSave,{ContentType:'application/json'});
+      
+      
+  } catch (error) {
+      console.log(error);
+  }finally{
+      console.log('fim')
+  }
+  
 
   
 }
@@ -258,7 +281,7 @@ if(!open) return null;
           label='Nome'
           value={pessoa.nome}
           name="nome"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
 
           <FormInput 
@@ -266,7 +289,7 @@ if(!open) return null;
           label='Sobrenome'
           value={pessoa.sobrenome}
           name="sobrenome"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
 
           <FormInput 
@@ -274,28 +297,28 @@ if(!open) return null;
           label='idade'
           value={pessoa.idade}
           name="idade"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
           <FormInput 
           type='text'
           label='login'
           value={pessoa.login}
           name="login"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
           <FormInput 
           type='text'
           label='senha'
           value={pessoa.senha}
           name="senha"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
           <FormInput 
           type='text'
           label='status'
           value={pessoa.status}
           name="status"
-          handler={{}}
+          handler={(e)=>tratarDadosPessoais(e)}
           />
           <button type='submit' >Salvar</button>
      </Form>

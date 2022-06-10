@@ -34,6 +34,9 @@ const [bairros,setBairros] = useState([]);
 //DADOS DAS PESSOAS
 const [pessoas,setPessoas] = useState([]);
 
+
+
+
 const obterMunicipiosPorCodigoUF=async(estado)=>{
   const munis= await axios.get(`http://localhost:3333/municipio?codigoUF=${estado.codigoUF}`)
   setMunicipio(null);
@@ -111,8 +114,13 @@ const limparPessoa=()=>{
   });
 }
 
+
+
+
 const submeterDadosPessoais= async(e)=>{
 e.preventDefault();
+
+
 
 if(pessoa.nome==="" || pessoa.sobrenome==="" || pessoa.idade==="" || pessoa.login==="" || pessoa.status===""||pessoa.senha==="" ){
   alert("Preencha todos os campos");
@@ -123,12 +131,22 @@ if(pessoa.enderecos.length<1){
   alert('Forneça pelo menos um endereço');
   return;
 }
-limparPessoa();
 
 
+setPessoa({...pessoa,enderecos:[...pessoa.enderecos,endereco]});
 
-const pessoasRetorno = await axios.post('http://localhost:3333/pessoa',pessoa,{ContentType:'application/json'});
- setPessoas(pessoasRetorno.data);
+
+try {
+  await axios.post(`http://localhost:3333/pessoa`,pessoa);
+  
+  // limparPessoa();
+
+} catch (error) {
+  console.log(error.message)
+}finally{
+  console.log('fim')
+}
+
 }
 
 

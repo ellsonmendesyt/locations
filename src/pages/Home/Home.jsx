@@ -38,14 +38,14 @@ if(erro){ return <h1>{erro.message}</h1>}
         <FormInput handler={manipuladorDeMudanca} value={dados.email} name='email' label='Email' />
       </Form> */}
 
-      {
+      {/* {
         states && states.length>0 && states.map(state=>{
           return <div key={state.codigoUF}>
             <h4>{state.nome}</h4>
             <p>{state.sigla}</p>
           </div>
         })
-      }
+      } */}
 
        
      
@@ -70,8 +70,8 @@ if(erro){ return <h1>{erro.message}</h1>}
         size={21}
         />
 
-          <Mapa /> */}
-
+          */}
+<Mapa /> 
     </article>
   )
 }
