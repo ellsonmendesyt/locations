@@ -102,44 +102,44 @@ passa os dados desse endereco para o novoendereco
 passa os valores correspondents pro dropdown
 */
 const modficarEndereco=async(endereco)=>{
-    console.log(endereco)
- setEditando(true)
+setEditando(true)
 setEnderecoEmAtualizacao(endereco);
+setCopiaEndereco(endereco);
 setListaEnderecos( listaEnderecos.filter((end=> end.codigoEndereco!=endereco.codigoEndereco)))
-setNovoEndereco(endereco);
+// setNovoEndereco(endereco);
 setEditando(false)
-
-
-}
-const excluirEndereco=(endereco)=>{
- if(listaEnderecos.length===0){
-     alert("Lista de endereços vazia")
-     return;
- }
-
-     const novaLista = listaEnderecos.filter(ender=> ender.codigoEndereco!=endereco.codigoEndereco)
-        setListaEnderecos(novaLista);
 }
 
 const cancelarEdicaoEndereco=(e)=>{
     e.preventDefault();
-      if(jaRetornou){
-          alert("Não é possivel desfazer a edição duas vezes ou algo inexistente!")
-          return;
-      }
+    if(jaRetornou){alert("Não é possivel desfazer a edição duas vezes ou algo inexistente!");return;}
 
-        setListaEnderecos([...listaEnderecos,enderecoEmAtualizacao]);
-        setCopiaEndereco(null)
-        setNovoEndereco(enderecoVazio)
-        setEnderecoEmAtualizacao(enderecoVazio);
-        setBairro(null)
-        setEstado(null)
-        setMunicipio(null)
-        setJaRetornou(true)
-        setEditando(false)
+    if(copiaEndereco==null){alert("Não é possivel desfazer a edição duas vezes ou algo inexistente!");return;}
+
+//tira o endereco da atualização
+setEnderecoEmAtualizacao(null);
+setListaEnderecos([...listaEnderecos,copiaEndereco]);
+setJaRetornou(true)
+
+        // setListaEnderecos([...listaEnderecos,copiaEndereco]);
+        // setCopiaEndereco(null)
+        // setNovoEndereco(enderecoVazio)
+        // setEnderecoEmAtualizacao(enderecoVazio);
+        // setBairro(null)
+        // setEstado(null)
+        // setMunicipio(null)
+        // setJaRetornou(false)
+        // setEditando(false)
 }
 
 
+const excluirEndereco=(endereco)=>{
+    if(listaEnderecos.length===0){alert("Lista de endereços vazia");return;
+    }
+          const novaLista = listaEnderecos.filter(e=>e.codigoEndereco != endereco.codigoEndereco);
+           setListaEnderecos(novaLista);
+           setPessoa({...pessoa,enderecos:novaLista});
+   }
 /*
   Verifica se todos os campos foram preenchidos
   adiciona o novo endereço na lista de endereços
@@ -167,7 +167,7 @@ const adicionarNovoEndereco=(e)=>{
     setBairro(null)
     setEstado(null)
     setMunicipio(null)
-    setJaRetornou(true)
+    // setJaRetornou(true)
     setEditando(false)
     
 }
@@ -393,21 +393,29 @@ if(!open) return null;
     {/* ============ LISTA DE ENDEREÇOS CADASTRADOS==========*/}
         {
         listaEnderecos.length>0 && listaEnderecos.map((endereco)=>(
-
-            <div className='endereco' key={endereco.nomeRua+new Date().getTime()}>
+          <div className='endereco' key={endereco.nomeRua+new Date().getTime()}>
                 <div className="endereco__conteudo">
+                   {console.log(endereco)}
+                    <div className="endereco_section primeiro">
                     <div>Rua <span>{endereco.nomeRua}</span></div>
-                    <div>Numero <span>{endereco.numero}</span></div>
-                    <div>Complemento <span>{endereco.complemento}</span></div>
-                    <div>Bairro <span>{endereco.codigoBairro}</span></div>
+                    <div>Comp <span>{endereco.complemento}</span></div>
                     <div>Cep <span>{endereco.cep}</span></div>
+                    </div>
+
+                    <div className="endereco_section">
+                    <div>Num <span>{endereco.numero}</span></div>
+                    <div>Bairro <span>{endereco?.bairro?.nome}</span></div>
+                    </div>
+                    <div className="endereco_section">
+                    <div>Mun <span>{endereco?.bairro?.municipio?.nome}</span></div>
+                    <div>UF <span>{endereco.bairro?.municipio?.uf.nome}</span></div>
+                    </div>
                 </div>
                 <div className="endereco__acoes">
                     <button className='endereco__acao--btn' onClick={()=>modficarEndereco(endereco)}>modificar</button>
                     <button className='endereco__acao--btn' onClick={()=>excluirEndereco(endereco)}>excluir</button>
                 </div>
             </div>
-
         ))
         }         
        </div>
